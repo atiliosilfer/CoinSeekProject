@@ -1,146 +1,86 @@
-package com.example.trabalho_final;
+package com.example.coinseek;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Rates {
 
     @SerializedName("ARS")
-    @Expose
     private Double aRS;
     @SerializedName("AUD")
-    @Expose
     private Double aUD;
     @SerializedName("BOB")
-    @Expose
     private Double bOB;
     @SerializedName("BRL")
-    @Expose
     private Double bRL;
     @SerializedName("BTC")
-    @Expose
     private Double bTC;
     @SerializedName("CAD")
-    @Expose
     private Double cAD;
     @SerializedName("CHF")
-    @Expose
     private Double cHF;
     @SerializedName("CLP")
-    @Expose
     private Double cLP;
     @SerializedName("CNY")
-    @Expose
     private Double cNY;
     @SerializedName("COP")
-    @Expose
     private Double cOP;
     @SerializedName("EGP")
-    @Expose
     private Double eGP;
     @SerializedName("EUR")
-    @Expose
     private Integer eUR;
     @SerializedName("GBP")
-    @Expose
     private Double gBP;
     @SerializedName("HKD")
-    @Expose
     private Double hKD;
     @SerializedName("INR")
-    @Expose
     private Double iNR;
     @SerializedName("JPY")
-    @Expose
     private Double jPY;
     @SerializedName("KPW")
-    @Expose
     private Double kPW;
     @SerializedName("KRW")
-    @Expose
     private Double kRW;
     @SerializedName("MXN")
-    @Expose
     private Double mXN;
     @SerializedName("NZD")
-    @Expose
     private Double nZD;
     @SerializedName("PEN")
-    @Expose
     private Double pEN;
     @SerializedName("PYG")
-    @Expose
     private Double pYG;
     @SerializedName("RUB")
-    @Expose
     private Double rUB;
     @SerializedName("SEK")
-    @Expose
     private Double sEK;
     @SerializedName("SGD")
-    @Expose
     private Double sGD;
     @SerializedName("USD")
-    @Expose
     private Double uSD;
     @SerializedName("UYU")
-    @Expose
     private Double uYU;
     @SerializedName("VEF")
-    @Expose
     private Double vEF;
     @SerializedName("XAG")
-    @Expose
     private Double xAG;
     @SerializedName("XAU")
-    @Expose
     private Double xAU;
     @SerializedName("XCD")
-    @Expose
     private Double xCD;
 
-    /**
-     * No args constructor for use in serialization
-     *
-     */
     public Rates() {
     }
 
-    /**
-     *
-     * @param hKD
-     * @param eUR
-     * @param cOP
-     * @param cAD
-     * @param uSD
-     * @param eGP
-     * @param bTC
-     * @param uYU
-     * @param sGD
-     * @param vEF
-     * @param pEN
-     * @param sEK
-     * @param xCD
-     * @param nZD
-     * @param bRL
-     * @param xAG
-     * @param cHF
-     * @param mXN
-     * @param aRS
-     * @param cLP
-     * @param iNR
-     * @param xAU
-     * @param cNY
-     * @param aUD
-     * @param kRW
-     * @param jPY
-     * @param kPW
-     * @param bOB
-     * @param gBP
-     * @param rUB
-     * @param pYG
-     */
-    public Rates(Double aRS, Double aUD, Double bOB, Double bRL, Double bTC, Double cAD, Double cHF, Double cLP, Double cNY, Double cOP, Double eGP, Integer eUR, Double gBP, Double hKD, Double iNR, Double jPY, Double kPW, Double kRW, Double mXN, Double nZD, Double pEN, Double pYG, Double rUB, Double sEK, Double sGD, Double uSD, Double uYU, Double vEF, Double xAG, Double xAU, Double xCD) {
+    public Rates(Double aRS, Double aUD, Double bOB,
+                 Double bRL, Double bTC, Double cAD,
+                 Double cHF, Double cLP, Double cNY,
+                 Double cOP, Double eGP, Integer eUR,
+                 Double gBP, Double hKD, Double iNR,
+                 Double jPY, Double kPW, Double kRW,
+                 Double mXN, Double nZD, Double pEN,
+                 Double pYG, Double rUB, Double sEK,
+                 Double sGD, Double uSD, Double uYU,
+                 Double vEF, Double xAG, Double xAU,
+                 Double xCD) {
         super();
         this.aRS = aRS;
         this.aUD = aUD;

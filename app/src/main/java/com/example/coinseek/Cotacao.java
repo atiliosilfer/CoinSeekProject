@@ -1,4 +1,4 @@
-package com.example.trabalho_final;
+package com.example.coinseek;
 
     /** Exemplo do Retorno
          {
@@ -42,42 +42,24 @@ package com.example.trabalho_final;
          }
      */
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Cotacao {
 
     @SerializedName("success")
-    @Expose
     private Boolean success;
     @SerializedName("timestamp")
-    @Expose
     private Integer timestamp;
     @SerializedName("base")
-    @Expose
     private String base;
     @SerializedName("date")
-    @Expose
     private String date;
     @SerializedName("rates")
-    @Expose
     private Rates rates;
 
-    /**
-     * No args constructor for use in serialization
-     *
-     */
     public Cotacao() {
     }
 
-    /**
-     *
-     * @param date
-     * @param success
-     * @param rates
-     * @param timestamp
-     * @param base
-     */
     public Cotacao(Boolean success, Integer timestamp, String base, String date, Rates rates) {
         super();
         this.success = success;

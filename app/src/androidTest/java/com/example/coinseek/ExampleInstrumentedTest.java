@@ -1,4 +1,4 @@
-package com.example.trabalho_final;
+package com.example.coinseek;
 
 import android.content.Context;
 

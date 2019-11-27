@@ -1,13 +1,13 @@
-package com.example.trabalho_final;
+package com.example.coinseek;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,7 +15,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+public class CotacaoActivity extends AppCompatActivity {
 
     private EditText edtCep;
     private Button btnEnviar;
@@ -25,10 +25,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_cotacao);
 
-        btnEnviar =  findViewById(R.id.idbtnKey);
-        edtCep =  findViewById(R.id.edtTextKey);
+        setupActivity();
+//        setupToolbar();
+        solicitarCotacao();
+
+
+        //inicializar retrofit
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://data.fixer.io/api/")                                       //parte estatica do endpoint
+                .addConverterFactory(GsonConverterFactory.create())                         //biblioteca de conversao para json
+                .build();
+    }
+
+    private void setupActivity() {
+        btnEnviar = findViewById(R.id.idbtnKey);
+        edtCep = findViewById(R.id.edtTextKey);
         tvDados = findViewById(R.id.txtViewKey);
 
         btnEnviar.setOnClickListener(new View.OnClickListener() {
@@ -37,17 +50,11 @@ public class MainActivity extends AppCompatActivity {
                 solicitarCotacao();
             }
         });
-
-        //inicializar retrofit
-        retrofit = new Retrofit.Builder()
-                .baseUrl("http://data.fixer.io/api/")                                       //parte estatica do endpoint
-                .addConverterFactory(GsonConverterFactory.create())                         //biblioteca de conversao para json
-                .build();
-    }//fim onCreate
+    }
 
     private void solicitarCotacao() {
 
-        cotacaoService service = retrofit.create(cotacaoService.class);
+        APIService service = retrofit.create(APIService.class);
 
         Call<Cotacao> call = service.getCotacao();
 
@@ -89,7 +96,8 @@ public class MainActivity extends AppCompatActivity {
                             "VEF: " + cotacao.getRates().getVEF() + "\n" +
                             "XAG: " + cotacao.getRates().getXAG() + "\n" +
                             "XAU: " + cotacao.getRates().getXAU() + "\n" +
-                            "XCD: " + cotacao.getRates().getXCD();                            ;
+                            "XCD: " + cotacao.getRates().getXCD();
+                    ;
 
                     tvDados.setText(strCotacao);
                 }
@@ -97,9 +105,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Cotacao> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Não foi possível realizar a requisição", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CotacaoActivity.this, "Não foi possível realizar a requisição", Toast.LENGTH_SHORT).show();
             }
         });
 
-    }//fim solicitarCotacao
-}//fim MainActivity
+    }
+}
