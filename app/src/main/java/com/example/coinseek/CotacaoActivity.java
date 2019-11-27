@@ -1,6 +1,7 @@
 package com.example.coinseek;
 
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +16,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import java.util.ArrayList;
+
 public class CotacaoActivity extends AppCompatActivity {
+
+    ArrayList<Pair<String,Double>> cotacoes = new ArrayList();
 
     private EditText edtCep;
     private Button btnEnviar;
@@ -63,6 +68,38 @@ public class CotacaoActivity extends AppCompatActivity {
             public void onResponse(Call<Cotacao> call, Response<Cotacao> response) {
                 if (response.isSuccessful()) {
                     Cotacao cotacao = response.body();
+
+                    cotacoes.add( Pair.create("Argentine Peso",cotacao.getRates().getARS()));
+                    cotacoes.add( Pair.create("Australian Dollar",cotacao.getRates().getAUD()));
+                    cotacoes.add( Pair.create("Bolivian Boliviano",cotacao.getRates().getBOB()));
+                    cotacoes.add( Pair.create("Brazilian Real",cotacao.getRates().getBRL()));
+                    cotacoes.add( Pair.create("Bitcoin",cotacao.getRates().getBTC()));
+                    cotacoes.add( Pair.create("Canadian Dollar",cotacao.getRates().getCAD()));
+                    cotacoes.add( Pair.create("Swiss Franc",cotacao.getRates().getCHF()));
+                    cotacoes.add( Pair.create("Chilean Peso",cotacao.getRates().getCLP()));
+                    cotacoes.add( Pair.create("Chinese Yuan",cotacao.getRates().getCNY()));
+                    cotacoes.add( Pair.create("Colombian Peso",cotacao.getRates().getCOP()));
+                    cotacoes.add( Pair.create("Egyptian Pound",cotacao.getRates().getEGP()));
+                    cotacoes.add( Pair.create("British Pound Sterling",cotacao.getRates().getGBP()));
+                    cotacoes.add( Pair.create("Hong Kong Dollar",cotacao.getRates().getHKD()));
+                    cotacoes.add( Pair.create("Indian Rupee",cotacao.getRates().getINR()));
+                    cotacoes.add( Pair.create("Japanese Yen",cotacao.getRates().getJPY()));
+                    cotacoes.add( Pair.create("North Korean Won",cotacao.getRates().getKPW()));
+                    cotacoes.add( Pair.create("South Korean Won",cotacao.getRates().getKRW()));
+                    cotacoes.add( Pair.create("Mexican Peso",cotacao.getRates().getMXN()));
+                    cotacoes.add( Pair.create("New Zealand Dollar",cotacao.getRates().getNZD()));
+                    cotacoes.add( Pair.create("Peruvian Nuevo Sol",cotacao.getRates().getPEN()));
+                    cotacoes.add( Pair.create("Paraguayan Guarani",cotacao.getRates().getPYG()));
+                    cotacoes.add( Pair.create("Russian Ruble",cotacao.getRates().getRUB()));
+                    cotacoes.add( Pair.create("Swedish Krona",cotacao.getRates().getSEK()));
+                    cotacoes.add( Pair.create("Singapore Dollar",cotacao.getRates().getSGD()));
+                    cotacoes.add( Pair.create("United States Dollar",cotacao.getRates().getUSD()));
+                    cotacoes.add( Pair.create("Uruguayan Peso",cotacao.getRates().getUYU()));
+                    cotacoes.add( Pair.create("Venezuelan Bolívar Fuerte",cotacao.getRates().getVEF()));
+                    cotacoes.add( Pair.create("Silver (troy ounce)",cotacao.getRates().getXAG()));
+                    cotacoes.add( Pair.create("Gold (troy ounce)",cotacao.getRates().getXAU()));
+                    cotacoes.add( Pair.create("East Caribbean Dollar",cotacao.getRates().getXCD()));
+
 
                     String strCotacao = "Base: " + cotacao.getBase() + "\n" +
                             "Date: " + cotacao.getDate() + "\n" +
